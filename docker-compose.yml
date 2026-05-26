@@ -22,4 +22,4 @@ services:
     container_name: client
     #задаём порядок запуска, чтобы клиент запустился после запуска web
     depends_on:
-      - web-service
+      - web
