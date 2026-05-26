@@ -1,20 +1,25 @@
 version: '3.8'
 
+#фундаментальный блок, которое запускает всё одновременно
 services:
-  web-service:
+  web:
+    #указываем путь к папке
     build: ./web-app
-    container_name: custom_web_app
+    container_name: web_app
+    #проброс портов: сначала на моем устройстве потом сервера
     ports:
       - "8098:8098"
 
-  nginx-service:
+  nginx:
+    #находим веб-сервер nginx на базе системы alpine
     image: nginx:alpine
-    container_name: ready_nginx_app
+    container_name: nginx_app
     ports:
       - "80:80"
 
-  client-service:
+  client:
     build: ./client-app
-    container_name: python_client
+    container_name: client
+    #задаём порядок запуска, чтобы клиент запустился после запуска web
     depends_on:
       - web-service
