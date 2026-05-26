@@ -2,7 +2,7 @@ import urllib.request
 import time
 
 
-URL = "http://web-service:8098"
+URL = "http://web:8098"
 
 print("Python-клиент запущен. Ожидание инициализации сети...", flush=True)
 time.sleep(5)  # Пауза для запуска сервера
